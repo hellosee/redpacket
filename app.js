@@ -3,7 +3,7 @@ var md5 = require('utils/md5.js')
 var loginInfo={};
 App({
   setConfig: { 
-    url: 'https://wz.xcxsucai.cn',
+    url: '',
     hb_appid: 'hb_gnpu',
     hb_appsecret: 'KXsC5gqCr52O2nDw'
     },
