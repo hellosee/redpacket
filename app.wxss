@@ -1,0 +1,108 @@
+/**app.wxss**/
+page{
+  min-height: 100%;
+  background:#f1f1f1;
+}
+.container {
+  height: 100%;
+  font-size: 28rpx;
+} 
+.sqbtn{
+  display: none;
+  width: 272rpx;
+  height: 88rpx;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -136rpx;
+  margin-top: -44rpx;
+  background: transparent;
+  border: none
+}
+.sqbtn::after {
+  display: none;
+}
+.zhygg{
+  min-width: 320rpx;
+  margin: 30rpx 0;
+  padding-top: 56rpx;
+  font-size: 26rpx;
+  color: #bbb;
+  text-align: center;
+  display: none;
+}
+.zhygg view{
+  display: block
+}
+.zhygg text{
+  color: #364a79;
+}
+.hover-submit{
+  opacity: .8
+}
+button{
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 28rpx;
+}
+button::after{
+  display: none;
+}
+.hover-submit{
+  opacity: .7
+}
+.hover-btn{
+  background: #cccccc !important;
+}
+.hover-btn2{
+  background: #eeeeee !important;
+}
+.clrs{
+  color: #fedeb2;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  overflow: hidden;
+  clear: both;
+}
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+.btn_share {
+  display: block;
+  margin:0 auto;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  overflow: visible;
+  position: relative;
+  z-index: 0
+}
+.btn_share::after {
+  display: none;
+}
+.item_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.btn-kf {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

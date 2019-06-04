@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<button class='sqbtn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" hidden='{{hidden}}'> 点击微信授权 </button>
+
+
+<block wx:else>
+<view class="container">
+  <view class="box">
+    <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" bindtap="bindtaprecord"></image>
+        <view class='userinfo-name clrs'>{{userInfo.nickName}}</view>
+        <view class='tit clrs'>选择一张珍藏的照片，好友拼出来才能获得赏金</view>
+        <view class='img'>
+          <view class='item' wx:for='{{indexHots}}' wx:key='*this' bindtap='selected' data-src='{{item.slide_pic}}'>
+            <image src='{{item.slide_pic}}'></image>
+          </view>
+        
+          <view class='item' bindtap="addimg">
+            <image src='../../images/more.png'></image>
+          </view>
+        </view>
+        <view class='txt clrs'>请勿上传色情以及其他违禁图片</view>
+        <view class='txt clrs'>本小程序有权在收到投诉后删除相应内容</view>
+    </view>
+  </view>
+  <button class='btn'  hover-class="hover-submit" open-type="contact"><image src='../../images/customer2.png'></image><text>联系客服</text></button>
+  <!--
+  <view class='footer'>
+    <view class='listnav' bindtap="bindtaprecord">
+      <image src="../../images/nav-1.png"></image>
+      <view>我的记录</view>
+    </view>
+     <view class='listnav' bindtap="bindtapbalance">
+      <image src="../../images/nav-2.png"></image>
+      <view>余额提现</view>
+    </view>
+     <view class='listnav' bindtap="bindtaphelp">
+      <image src="../../images/nav-3.png"></image>
+      <view>常见问题</view>
+    </view>
+  </view>-->
+</view>
+</block>

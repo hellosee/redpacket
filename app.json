@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/redpacket/redpacket",
+    
+    
+    
+    "pages/select/select",
+    "pages/compose/compose",
+    "pages/share/share",
+    "pages/recordDetails/recordDetails",
+    "pages/balance/balance",
+    "pages/record/record",
+    "pages/report/report",
+    "pages/help/help",
+    "pages/logs/logs",
+    "pages/image-cropper/image-cropper",
+    "pages/cutImgs/cutImgs"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#dc6142",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

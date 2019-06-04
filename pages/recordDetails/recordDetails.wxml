@@ -1,0 +1,89 @@
+<!--recordDetails.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button class='sqbtn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>
+    <block wx:else>
+      <view class='upper'>
+        <image class="userinfo-avatar" src="{{ownerImg}}" background-size="cover"></image>
+        <view class='textCN'>{{textCN}}</view>
+        <view class='box' hover-class='hover-submit'>
+          <image class='minimg' src='{{imgsrc}}'></image>
+          <view class='box_txt' bindtap='cueIn'>
+            <view class='text'>
+              <image wx:if="{{state==1}}" class='icon-start' src='/images/icon-start.png'></image>
+              <image wx:if="{{state>2}}" class='icon-yh' src='/images/icon-yh.png'></image>
+              <view wx:if="{{state==1}}" class='txt'>点击开始拼图</view>
+              <view wx:if="{{state==1}}" class='txt'>时间不限</view>
+              <view wx:if="{{state==2}}" class='txt receive'><text style='font-size:{{receiveJE<1000?68:52}}rpx'>{{receiveJE}}</text>元</view>
+              <view wx:if="{{state==2}}" class='wctime'><image src='/images/time1.png'></image><view>用时{{mytime}}</view></view>
+              <view wx:if="{{state>2}}" class='txt txt1'>很遗憾</view>
+              <view wx:if="{{state==3}}" class='txt'>赏金已经被抢光啦</view>
+              <view wx:if="{{state==4}}" class='txt'>拼图已经失效啦</view>
+            </view>
+          </view>
+        </view>
+        <view class='count'>
+          <view><button class='count-t' bindtap='toBalance'><image src='/images/icon-toBalance.png'></image>{{count.qtx}}</button></view>
+          <view><button class='count-t' bindtap='toIndex'><image src='/images/icon-toIndex.png'></image>{{count.fhb}}</button></view>
+          <view><button class='count-t' bindtap="toShare"><image src='/images/icon-toShare.png'></image>{{count.qzf}}</button></view>
+        </view>
+      </view>
+      <view class='redinfo'><view class='infotxt'>共<text>{{zje}}</text>元，领取<text>{{zlq}}/{{zgs}}</text>个</view><navigator url="../report/report" class='report' hover-class="none">举报</navigator></view>
+      <view class='ls'>
+        <block wx:for="{{ls}}"  wx:for-item="item">
+          <view class='ls-item'>
+            <view class='ls-s ls-img'><image src="{{item.imgurl}}" data-src="{{item.imgurl}}" bindtap='picture'></image></view>
+            <view class='ls-s ls-c'>
+              <text class='ls-c-t'>{{item.name}}</text>
+              <view class='ls-c-b'>用时{{item.get_time}}</view>
+            </view>
+            <view class='ls-s ls-r'><text class='ls-r-t bold'>{{item.lsje}} 元</text><text class='ls-r-b'>{{item.time}}</text></view>
+          </view>
+        </block>
+      </view>
+      <view class='zhygg'>
+        <view><text bindtap='tel'>未领取的金额，将于24小时后退回至小程序余额</text></view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='cue {{tocue?"on":""}}'>
+  <view class='cue_top'><image src='/images/time2.png'></image><view>用时{{totimer}}</view></view>
+  <view class="cue_con" style='width:{{boxW+1}}px;height:{{boxW+1}}px'>
+    <block wx:for="{{list}}">
+      <view class='img {{index == key ? "on" : ""}} {{index == num1||index==num2 ? "in":""}}' data-key="{{index}}" data-id="{{item.id}}" style='width:{{boxW/mode-1}}px;height:{{boxW/mode-1}}px;left:{{item.left}}px;top:{{item.top}}px' bindtouchstart='toStart'>
+        <image src='{{imgsrc}}' style='width:{{boxW}}px;height:{{boxW}}px;left:{{abimg[index].imgl}}px;top:{{abimg[index].imgt}}px'></image>
+      </view>
+    </block>
+    <view class='timeout {{timeot?"on":""}}'><view style='font-size:{{timeout>0?180:80}}rpx'>{{timeout}}</view></view>
+  </view>
+  <view class='cue_point clrs'>点击图片交换位置，拼图成功自动领取赏金</view>
+  <view class='cue_bottom'>
+    <view class='cue_btn clrs' bindtap='cueOut'><image src='/images/cue_btn.png'></image>放弃挑战</view>
+  </view>
+</view>
+<view class='end {{toend?"on":""}}'>
+  <view class='end_bao {{boxState==2?"tan3":""}}'>
+    <image class='end_bg {{boxState<2?"in":"out"}}' src='{{boxbg[1]}}'></image>
+    <image class='end_bg end_bg3 {{boxState==2?"in":"out"}}' src='{{boxbg[2]}}'></image>
+    <view class='end_tou'><image src='{{userInfo.avatarUrl}}'></image></view>
+    <view class='end_text clrs'>{{boxState==2?"成功领取赏金":"恭喜你完成了拼图，用时"+totimer}}</view>
+    <view wx:if="{{boxState==0}}" class='end_btn {{roll?"run":""}}' bindtap='endBtn'>
+      <image src='/images/open.png'></image>
+    </view>
+    <view wx:if="{{boxState==1}}" class='end_fail'>
+      <view class='fail_txt clrs'>不过很遗憾</view>
+      <view class='fail_txt clrs'>赏金被别人抢先一步领完啦！</view>
+      <button class='fail_btn' bindtap='toIndex'>去发一个</button>
+    </view>
+    <view wx:if="{{boxState==2}}" class='end_success'>
+      <view class='success_tit clrs'><text>{{receiveJE}}</text>元</view>
+      <view class='success_txt clrs'>赏金已存入余额，<text class='clrs' bindtap='toBalance'>立即提现</text></view>
+      <button class='success_btn' bindtap='toShare'>转发给朋友</button>
+      <button class='success_btn success_btn2' bindtap='toIndex'>去发一个</button>
+    </view>
+  </view>
+  <view wx:if="{{boxState!=0}}" class='fail_clear'>
+    <icon type="clear" size="{{boxW/8}}" color="#ccc" bindtap='clearNnd'></icon>
+  </view>
+</view>

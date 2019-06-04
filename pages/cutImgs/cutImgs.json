@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "image-cropper": "../image-cropper/image-cropper"
+  }
+}

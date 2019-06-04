@@ -1,0 +1,14 @@
+<view class='container clearfix'>
+  <view class='left fl'>
+    <block wx:for='{{team}}' wx:key='*this'>
+      <view class='item {{selectKey == index ? "on" : ""}}' bindtap='select' data-key="{{index}}">{{item}}</view>
+    </block>
+  </view>
+  <view class='right fr {{select[selectKey].length<1?"rg0":""}}'>
+    <block wx:for='{{select[selectKey]}}' wx:key='*this'>
+      <view class='item' bindtap='selected' data-src='{{item.slide_pic}}' data-title='{{item.title}}'>
+        <image src='{{item.slide_pic}}'></image>
+      </view>
+    </block>
+  </view>
+</view>

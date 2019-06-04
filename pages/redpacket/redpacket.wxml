@@ -1,0 +1,45 @@
+<!--redpacket.wxml-->
+<view class="container">
+  <view class="picture" style='width:{{boxW}}px;height:{{boxW}}px;' bindtap='toimgs'>
+    <view class='img'>
+      <image src='{{imgsrc}}'></image>
+    </view>
+    <block wx:for="{{lines}}">
+      <view class='line row' style='top:{{item}}'></view>
+      <view class='line col' style='left:{{item}}'></view>
+    </block>
+  </view>
+  <view class='txt clrs'>请勿上传色情以及其他违禁图片</view>
+  <view class='txt clrs'>本小程序有权在收到投诉后删除相应内容</view>
+  <view class='con'>
+    <form  bindsubmit="formSubmit" report-submit="true">
+      <view class='box'>
+        <view class='ls inp1'>
+          <input name="text"  maxlength="20" value='{{textCN}}' placeholder-style="color:#999" placeholder="请留下你的寄语" ></input>
+          <view class='icon-text' bindtap='stencilShow'><image src='../../images/icon-down.svg'></image></view>
+        </view>
+        <view class='ls'>
+          <text class='tit'>拼图难度</text>
+          <button class='md {{mode==3?"on":""}}' data-id='3' bindtap='tomode'>3X3</button>
+          <button class='md {{mode==4?"on":""}}' data-id='4' bindtap='tomode'>4X4</button>
+          <button class='md {{mode==5?"on":""}}' data-id='5' bindtap='tomode'>5X5</button>
+          <button class='md {{mode==6?"on":""}}' data-id='6' bindtap='tomode' wx:if="{{difficulty}}">6X6</button>  
+        </view>
+        <view class='ls'>
+          <text class='tit'>赏金 (元)</text>
+          <input name="sum" type="digit" maxlength="9" bindblur="bindJEInput" value='{{sum}}' placeholder-style="color:#999" placeholder="填写金额" />
+        </view>
+        <view class='ls'>
+          <text class='tit'>数量 (个)</text>
+          <input name="num" type="number" maxlength="6" bindblur="bindSLInput" value='{{num}}' placeholder-style="color:#999" placeholder="填写可以获得赏金的人数" />
+        </view>
+      </view>
+      <view class='service clrs'>
+        <text wx:if="{{commision*1 == 0}}">不需要支付手续费<text class='red'></text></text>
+        <text wx:elif="{{serviceCharge == '0.00'}}">需支付<text class='red'>{{commision}}%手续费</text></text>
+        <text wx:else>需支付￥{{serviceCharge}}元手续费</text>
+      </view>
+      <view class='btn'><button formType="submit">{{btn}}</button></view>
+    </form>
+  </view>
+</view>

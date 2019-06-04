@@ -1,0 +1,28 @@
+<!--report.wxml-->
+<view class='con'>
+  <view class='reason'>请选择举报原因</view>
+  <view class="report-list">
+    <block wx:for="{{lists}}" wx:for-item="obj">
+      <view class="list">
+        <view class='tit' bindtap='onshow' data-id="{{obj.id}}">
+          <text catchtap='onshow' data-id="{{obj.id}}">{{obj.con}}</text>
+          <view class='icon' catchtap='onshow' data-id="{{obj.id}}">
+            <icon type="success" size="25" color='#28b265' wx:if="{{control === obj.id}}"/>
+            <view class='icon-no' catchtap='onshow' data-id="{{obj.id}}"  wx:if="{{control != obj.id}}"></view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- <view class='personal'>请填写您的个人信息，方便我们联系您</view>
+  <view class='report-form'>
+    <form bindsubmit="formSubmit">
+      <view class='form-txt'>
+        <view class='txt'><text>手机号</text><input name="phone" type="number" maxlength="15" placeholder-style="color:#ccc" placeholder="选填" value='{{phone}}'/></view>
+        <view class='txt'><text>微信号</text><input name="wx"  placeholder-style="color:#ccc" placeholder="选填" value='{{wx}}'/></view>
+      </view>
+      <button class='btn' formType="submit"><text>提交</text></button>
+    </form>
+  </view> -->
+  <button class='btn' bindtap="submit"><text>提交</text></button>
+</view>

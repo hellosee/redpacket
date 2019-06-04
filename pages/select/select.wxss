@@ -1,0 +1,48 @@
+/* pages/select/select.wxss */
+page{
+  background: #fff;
+}
+.container {
+  background: #fff;
+}
+.left {
+  width: 180rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.left .item {
+  height: 106rpx;
+  line-height: 106rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #eee;
+}
+.left .item.on {
+  background: #eee;
+  color: #d95940;
+}
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20rpx 20rpx;
+  width: 572rpx;
+  min-height: 100%;
+  background: #eee;
+  box-sizing: border-box;
+}
+.right.rg0{
+  padding-bottom: 0;
+}
+.right .item {
+  width: 257rpx;
+  height: 257rpx;
+  margin-top: 18rpx;
+  border: 8rpx solid #fff;
+  box-shadow: 1rpx 1rpx 10rpx #ddd;
+  box-sizing: border-box;
+}
+.right .item image {
+  width: 241rpx;
+  height: 241rpx;
+}

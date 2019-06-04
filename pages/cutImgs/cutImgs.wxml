@@ -1,0 +1,9 @@
+<view class="container">
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut"></image-cropper>
+<view class="oka">
+  <button bindtap="getPicInfo">确定选择</button>
+</view>
+
+</view>
+
+

@@ -1,0 +1,28 @@
+<!--share.wxml-->
+<view class="container">
+    <view class="box" wx:if="{{hasUserInfo}}">
+      <view class='upper'>
+        <view class='bg'><view class='bg-img'></view></view>
+        <view class='front'>
+          <view class='avatar'>
+            <image class='ownerimg' src='{{ownerImg}}'></image>
+          </view>
+          <view class='redtips'><text>{{redtips}}</text><image src='../../images/redtips.png'></image></view>
+          <view class='describe'>{{describe}}</view>
+        </view>
+      </view>
+      <view class='lower'>
+        <view class='ewm'>
+          <view class='ewmImg'>
+            <image class='xcxewm' src='{{xcxewm}}'></image>
+            <image class='open' src='{{opensrc}}'></image>
+          </view>
+        </view>
+        <view class='operation'>
+          <view class='btn'><button class='retransmission' hover-class='hover-submit' open-type="share">转发到群聊</button></view>
+          <view class='btn'><button class='generate' hover-class='hover-btn' bindtap='sheng'>生成分享图</button></view>
+          <view class='mytry' bindtap='mytry'>{{ cid == 0 ? "我也去拼一下 →" : "← 返回"}}</view>
+        </view>
+      </view>
+    </view>
+</view>

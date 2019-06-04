@@ -1,0 +1,107 @@
+page{
+  height: 100%;
+  overflow: hidden;
+}
+.con{
+  padding-bottom: 30rpx;
+  position: relative;
+}
+.reason{
+  font-size: 28rpx;
+  margin-top: 6rpx;
+  line-height: 66rpx;
+  color: #999;
+  text-align: center;
+}
+.report-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+}
+.list{
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.list .tit{
+  line-height: 100rpx;
+  padding: 0 54rpx 0 46rpx;
+  position: relative;
+  border-radius: 8rpx;
+  background: #fff;
+}
+
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  line-height: normal;
+  padding: 0;
+  margin-top:24rpx;
+  float: right;
+
+}
+.icon icon{
+  margin: 0;
+  width: 50rpx;
+  height: 50rpx;
+}
+.icon .icon-no{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  border: 1rpx solid #ccc;
+}
+.personal{
+  font-size: 28rpx;
+  margin-top: 6rpx;
+  line-height: 66rpx;
+  text-indent: 30rpx;
+  color: #999;
+}
+.report-form{
+  padding-bottom: 50rpx;
+}
+.form-txt{
+  background: #fff;
+  border-top: 1rpx solid #e1e1e1;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.report-form .txt{
+  margin: 0 30rpx;
+  font-size: 32rpx;
+  color: #333;
+  line-height: 100rpx;
+}
+.report-form .txt:first-child{
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.report-form .txt text{
+  display: inline-block;
+  width: 140rpx;
+  text-indent: 15rpx;
+  vertical-align: middle
+}
+.report-form .txt input{
+  display: inline-block;
+  width: 520rpx;
+  padding-left: 15rpx;
+  vertical-align: middle
+}
+
+.btn{
+  width: 700rpx;
+  margin: 30rpx auto 0;
+  line-height: 80rpx;
+  text-align: center;
+  background: #28b265;
+  border-radius: 8rpx;
+}
+
+.btn text{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 32rpx;
+  color: #fff;
+}

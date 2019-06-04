@@ -1,0 +1,124 @@
+/**redpacket.wxss**/
+
+page{
+  background: #dc6142;
+  height: 100%;
+}
+
+.container{
+  height: auto;
+  padding: 40rpx 0 0;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.container .picture{
+  margin: 0 auto 24rpx;
+  background: #000;
+  border: 12rpx solid #fff;
+  overflow: hidden;
+  position: relative;
+}
+.container .picture .img{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.container .picture .img image{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  left:0;
+  top:0
+}
+.container .picture .line{
+  position: absolute;
+  transition: all .2s;
+}
+.container .picture .row{
+  width: 100%;
+  height: 0;
+  border-top: 1px solid #fff;
+  left: 0;
+}
+.container .picture .col{
+  width: 0;
+  height: 100%;
+  border-left: 1px solid #fff;
+  top: 0;
+}
+.container .txt{
+  font-size: 26rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+.container .con{
+  width: 680rpx;
+  margin: 40rpx auto 0;
+  padding-bottom: 30rpx;
+}
+.container .con .box{
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 0 30rpx;
+}
+.container .con .box .ls{
+  height: 92rpx;
+  line-height: 92rpx;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
+}
+.container .con .box .ls.inp1 input{
+  width: 540rpx;
+  display: block;
+  height: 92rpx;
+  line-height: 92rpx;
+}
+.container .con .box .inp1 .icon-text{
+  width: 60rpx;
+  height: 60rpx;
+  padding: 10rpx;
+}
+.container .con .box .inp1 .icon-text image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.container .con .box .ls .tit{
+  width: 180rpx;
+}
+.container .con .box .ls .md{
+  height: 44rpx;
+  line-height: 42rpx;
+  padding:0 20rpx;
+  margin-right: 32rpx;
+  font-size: 24rpx;
+  border:1px solid #a1a1a1; 
+  color: #8d8d8d;
+  border-radius: 8rpx;
+}
+.container .con .box .ls .md.on{
+  background: #dc6142;
+  color: #fff;
+  border-color: #dc6142;
+}
+.container .con .box .ls input{
+  width: 420rpx;
+  color:#993621;
+}
+.container .con .service{
+  line-height: 72rpx;
+  text-align: center;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+.container .con .btn button{
+  width: 100%;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-radius: 8rpx;
+  background: #f4e3b7;
+  color: #993621;
+}

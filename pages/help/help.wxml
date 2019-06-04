@@ -1,0 +1,23 @@
+<!--help.wxml-->
+<view class='container'>
+<scroll-view class='con' scroll-y="{{true}}">
+<view class='box'>
+  <view class="help-list">
+    <block wx:for="{{lists}}" wx:for-item="obj">
+      <view class="list {{control === index ? 'on' : ''}}">
+        <view class='tit' bindtap='onshow' data-id="{{index}}">
+          <text data-id="{{index}}">{{index+1}}. {{obj.link_name}}</text>
+          <view class='icon' data-id="{{index}}">
+            <image src='/images/updown-arrows.png'></image>
+          </view>
+        </view>
+        <view class='txt'>{{obj.link_description}}</view>
+      </view>
+    </block>
+    <button wx:if="{{show}}" class='btn' open-type="contact"><image src='../../images/customer.png'></image><text>联系在线客服</text></button> 
+  </view>
+  <view class='foot'><text class='version'>版本 | v{{version}}</text>
+  </view>
+</view>
+</scroll-view>
+</view>

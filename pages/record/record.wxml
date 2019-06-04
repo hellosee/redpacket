@@ -1,0 +1,58 @@
+<!--record.wxml-->
+<button class='sqbtn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>
+<block wx:else>
+<view class="container">
+  <view class="nav">
+    <view class="{{current === 0 ? 'on':''}}" data-current="0" bindtap="swichNav"><text>我发出的</text></view>
+    <view class="{{current === 1 ? 'on':''}}" data-current="1" bindtap="swichNav"><text>我收到的</text></view>
+  </view>
+  <swiper current="{{current}}" duration="{{duration}}" bindchange="bindchange">
+    <block wx:for="{{lists}}">
+      <swiper-item>
+        <scroll-view class='swiper-scroll' scroll-y="{{true}}" bindscrolltolower="lower"  data-current="{{index}}">
+          <view class='con-box'>
+            <view class="userinfo">
+                <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+                <view class='userinfo-name'><text>{{userInfo.nickName}}</text> {{item.nam}}</view>
+                <view class='count'>
+                  <view><view class='count-t'>金额 (元)</view><text>{{item.je}}</text></view>
+                  <view><view class='count-t'>数量 (个)</view><text>{{item.sl}}</text></view>
+                </view>
+                <view class='ls'  wx:if="{{index == 0}}">
+                  <block wx:for="{{item.ls}}"  wx:for-item="itemChild">
+                    <navigator url='../recordDetails/recordDetails?pid={{itemChild.id}}' class='ls-item'>
+                      <view class='ls-t'><text class='ls-l'>{{itemChild.quest}}</text><text class='ls-r bold'>{{itemChild.show_amount}} 元</text></view>
+                      <view class='ls-b'><text class='ls-l'>{{itemChild.add_time}}</text><text class='ls-r'>{{itemChild.receive_num}}/{{itemChild.num}}</text></view>
+                    </navigator>
+                  </block>
+                </view>
+                <view class='ls'  wx:if="{{index == 1}}">
+                  <block wx:for="{{item.ls}}"  wx:for-item="itemChild">
+                    <navigator url='../recordDetails/recordDetails?pid={{itemChild.id}}' class='ls-item'>
+                      <view class='ls-s ls-img'><image src="{{itemChild.head_img}}"></image></view>
+                      <view class='ls-s ls-c'><text class='ls-c-t'>{{itemChild.nick_name}}</text><text class='ls-c-b'>{{itemChild.add_time}}</text></view>
+                      <view class='ls-s ls-r bold'><text>{{itemChild.receive_amount}} 元</text></view>
+                    </navigator>
+                  </block>
+                </view>
+            </view>
+            <view class='clear'></view>
+            <!--<view class='question'><text bindtap="bindtaphelp">常见问题</text></view>-->
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='footer'>
+     <view class='listnav' bindtap="bindtapbalance">
+      <image src="../../images/nav-2.png"></image>
+      <view>余额提现</view>
+    </view>
+     <view class='listnav' bindtap="bindtaphelp">
+      <image src="../../images/nav-3.png"></image>
+      <view>常见问题</view>
+    </view>
+  </view>
+</view>
+
+</block>

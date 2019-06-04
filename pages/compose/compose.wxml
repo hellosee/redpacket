@@ -1,0 +1,30 @@
+<!--compose.wxml-->
+<view class="container">
+  <view class='upper'>
+    <image class='bg' src='{{bgsrc[stIndex]}}'></image>
+    <view class='front front{{stIndex}}' style='color:{{colors[stIndex]}}'>
+      <view class='avatar'>
+        <image class='ownerimg' src='{{ownerImg}}'></image>
+      </view>
+      <view class='redtips'><text>{{redtips}}</text><image src='{{redimgs[stIndex]}}'></image></view>
+      <view class='describe'>{{describe}}</view>
+    </view>
+    <view class='ewm'>
+      <view class='xcxewm'><image src='{{xcxewm}}'></image></view>
+      <image class='open' src='{{opensrc}}'></image>
+    </view>
+  </view>
+  <view class='lower'>
+    <view class='btn'><button class='retransmission' hover-class='hover-submit' bindtap="sheng">生成分享图</button></view>
+    <view class='btn'><button class='generate' hover-class='hover-btn2' bindtap='toStencil'>换个外形壳</button></view>
+  </view>
+</view>
+<view class='stencil' wx:if="{{stSwitch}}">
+  <scroll-view scroll-y>
+    <view class='stencil_con'>
+    <block wx:for="{{stencil}}">
+      <view class='ls {{index+1 == stIndex?"on":""}}' hover-class='hover-stenvil' data-index="{{index+1}}" bindtap='choose'><image src='{{item}}'></image></view>
+    </block>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,37 @@
+<!--balance.wxml-->
+<view class="container">
+  <button class='sqbtn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 加载中••• </button>
+  <block wx:else>
+    <view class='clear-top'></view>
+    <view class="box">
+      <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        
+        <text class='userinfo-name'>{{userInfo.nickName}}</text>
+      </view>
+      <view class='zhye'>账户余额<text class="amount">{{amount}}</text><text class='unit'>元</text></view>
+      <form bindsubmit="formSubmit">
+        <view class='txt'>
+          <view class='txt-l'><text>提现金额</text></view>
+          <view class='txt-r'>
+            <view class='txtipt'><text class='icon'>￥</text><input name="txje" type="digit" bindblur="bindKeyInput" maxlength="9" placeholder-style="color:#ccc" value='{{sum}}' placeholder="填写提现金额" /></view>
+          </view>
+        </view>
+        <view class='cl'></view>
+        <view class='ts ts1'>
+          <text wx:if="{{rate*1 == 0}}">提现到微信钱包， <text class='red'></text></text>
+          <text wx:elif="{{rsum == '0.00'}}">手续费为<text class='red'>{{rate*100}}% </text></text>
+          <text wx:else>需支付手续费<text class='red'>{{rsum+'元 '}}</text></text>
+          <text class='entirely' bindtap='entirely'>全部提现</text>
+        </view>
+        <view class="btn-area">
+          <button formType="submit" hover-class='hover-submit'>提现</button>
+        </view>
+        <view class='ts ts2'>申请提现后会在1-5个工作日内转账到您的微信钱包</view>
+      </form>
+    </view>
+    <view class='report'>
+      <navigator url="../report/report" class='report-btn' hover-class="none"><text class='report-btn'>举报</text></navigator>
+    </view>
+  </block>
+</view>
